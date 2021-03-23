@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {render} from 'react-dom';
 import './index.css';
-import App from './App';
 import AshramForm from  './form'
 import Member from './Member'
 
@@ -57,14 +56,14 @@ return(
     />
 
 
-    {teamMates.map((teamMate) => {
+    {teamMates.map((teamMate, i) => {
       return(
-        <Member key={teamMate.id} details={teamMate}/>
+        <Member key={i} details={teamMate}/>
       )})
       }
   </div>
 )
-}
+} 
 render(
   <>
     <Form />

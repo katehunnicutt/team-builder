@@ -1,4 +1,33 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Styles = styled.div`
+*{
+    box-sizing: border-box;
+    color: #222222;
+    
+}
+label{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px
+}
+input, select{
+    width:14em;
+
+}
+
+
+.submit button{
+padding: 1em;
+background-color: lightblue;
+margin: 20px;
+border: none;
+justify-self: flex-end;
+
+}
+
+`
 
 export default function AshramForm(props){
     const { values, update, submit} = props
@@ -15,27 +44,31 @@ const onSubmit= evt => {
 }
 
 return(
-<form className= 'form container' onSubmit={onSubmit}>
-<div className='form-group inputs'>
+<Styles>
+<form className= 'form-container' onSubmit={onSubmit}>
+
+<div className='form-group-inputs'>
 
     <label>Name
         <input
-            name= 'name'
+            name= 'teamMateName'
             type= 'text'
             value={values.teamMateName}
             onChange={onChange}
-            placeholder='type name or leave'
+            placeholder='name'
         />
     </label>
 
     <label>Title
-        <input
-            name= 'status'
-            type= 'text'
-            value= {values.status}
-            onChange={onChange}
-            placeholder= 'type title or leave'
-        />
+        <select value={values.status} name='status' onChange={onChange}>
+            <option value= ''>--- Select Guest Type ---</option>
+            <option value= 'Swami'>Swami</option>
+            <option value= 'Chaitanya'>Chaitanya</option>
+            <option value= 'Karma Yogi'>Karma Yogi</option>
+            <option value= 'Yoga Vacationer'>Yoga Vacationer</option>
+
+        </select>
+
     </label>
 
     <label>Email
@@ -44,18 +77,27 @@ return(
             type= 'text'
             value= {values.email}
             onChange={onChange}
-            placeholder= 'type email or leave'
+            placeholder= 'email@address.com'
         />
     </label>
 
     <label> Favorite Asana
-        <select value= {values.favoriteAsana} name='Favorite Asana' onChange={onChange} >
+        <select value= {values.favoriteAsana} name='favoriteAsana' onChange={onChange} >
             
-            <option value= ''>--- Select Asana.. ---</option>
-            <option value= 'MATSYASANA'>matsyasana</option>
-            <option value= 'SIRSASANA'>sirsasana</option>
-            <option value= 'SAVASANA'>savasana</option>
-            <option value= 'HALASANA'>halasana</option>
+            <option value= ''>--- Select Asana ---</option>
+            <option value= 'Matsyasana'>Matsyasana</option>
+            <option value= 'Sirsasana'>Sirsasana</option>
+            <option value= 'Savasana'>Savasana</option>
+            <option value= 'Halasana'>Halasana</option>
+            <option value= 'Sarvangasana'>Sarvangasana</option>
+            <option value= 'Bhujangasana'>Bhujangasana</option>
+            <option value= 'Paschimothanasana'>Paschimothanasana</option>
+            <option value= 'Salabhasana'>Salabhasana</option>
+            <option value= 'Dhanurasana'>Dhanurasana</option>
+            <option value= 'Kakasana'>Kakasana</option>
+            <option value= 'Trikonasana'>Trikonasana</option>
+
+
 
         </select>
     </label>
@@ -66,6 +108,7 @@ return(
     </div>
 </div>
 </form>
+</Styles>
 )
 
 }
